@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class ContainerBubble
     extends StatelessWidget {
   final Widget child;
+  final double? width;
+  final double? height;
 
   const ContainerBubble({
     super.key,
     required this.child,
+    this.width,
+    this.height,
   });
 
   @override
@@ -15,6 +19,8 @@ class ContainerBubble
       padding:
           const EdgeInsets.all(8.0),
       child: Container(
+        width: width,
+        height: height,
         padding:
             const EdgeInsets.all(16.0),
         decoration: BoxDecoration(

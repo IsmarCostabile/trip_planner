@@ -1,25 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:trip_planner/components/location_widget/location_widget.dart';
+import '../components/place_info_card.dart';
 
 class CommunityPage
     extends StatelessWidget {
-  const CommunityPage({super.key});
+  const CommunityPage({Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final double cardWidth =
+        MediaQuery.of(context)
+                .size
+                .width *
+            0.7;
+    final int index =
+        0; // Define the index variable
+
+    return Scaffold(
       backgroundColor:
-          Color(0xFFF5F5F5),
+          const Color(0xFFF5F5F5),
       body: Center(
-        child: LocationWidget(
-          
-            title: 'test',
-            imageUrls: [
-              'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftiptoeingworld.com%2F2018%2F01%2Fcasa-batllo-is-the-entrance-ticket-worth-paying%2F&psig=AOvVaw1SoR4uVGw_YGYeSUFCPjKR&ust=1730741274909000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODbtejXwIkDFQAAAAAdAAAAABAJ'
-            ],
-            openingTimes: '8am-9pm',
-            price: '10€',
-            distance: '5km'),
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 250,
+              child: Padding(
+                padding:
+                    const EdgeInsets
+                        .symmetric(
+                        horizontal:
+                            10.0),
+                child: PlaceInfoCard(
+                  openingHours:
+                      '08:00 am - 02:00 pm',
+                  location: 'Barcelona',
+                  description:
+                      'testing testing 1 2 3',
+                  index: index,
+                  width: cardWidth,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

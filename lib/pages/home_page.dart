@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:trip_planner/components/container_bubble.dart';
+import 'package:trip_planner/components/place_info_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final double cardWidth =
+        MediaQuery.of(context)
+                .size
+                .width *
+            0.7;
+
     return Scaffold(
       backgroundColor:
           const Color(0xFFF5F5F5),
@@ -45,57 +52,38 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 150,
+                        height:
+                            250, // Set a fixed height for the ListView
                         child: ListView
                             .builder(
                           scrollDirection:
                               Axis.horizontal,
-                          itemCount:
-                              10, // Replace with the actual number of items
+                          itemCount: 3,
                           itemBuilder:
                               (context,
                                   index) {
-                            return ContainerBubble(
-                              child: Text(
-                                  'test'),
-                            ); // Replace with your actual widget
+                            return Padding(
+                              padding: const EdgeInsets
+                                  .symmetric(
+                                  horizontal:
+                                      5.0),
+                              child:
+                                  PlaceInfoCard(
+                                openingHours:
+                                    '08:00 am - 02:00 pm',
+                                location:
+                                    'Barcelona',
+                                description:
+                                    'testing testing 1 2 3',
+                                index:
+                                    index,
+                                width:
+                                    cardWidth,
+                              ),
+                            );
                           },
                         ),
                       ),
-                      const SizedBox(
-                          height:
-                              16.0), // Add spacing between sections
-                      const Text(
-                        'Locations',
-                        style:
-                            TextStyle(
-                          fontSize: 18,
-                          fontWeight:
-                              FontWeight
-                                  .bold,
-                          color: Color(
-                              0xFF071013),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 150,
-                        child: ListView
-                            .builder(
-                          scrollDirection:
-                              Axis.horizontal,
-                          itemCount:
-                              10, // Replace with the actual number of items
-                          itemBuilder:
-                              (context,
-                                  index) {
-                            return ContainerBubble(
-                              child: Text(
-                                  'test'),
-                            ); // Replace with your actual widget
-                          },
-                        ),
-                      ),
-                      // Add more sections here as needed
                     ],
                   ),
                 ),
