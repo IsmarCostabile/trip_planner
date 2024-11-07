@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../components/place_info_card.dart';
 
 class CommunityPage
     extends StatelessWidget {
@@ -26,23 +25,15 @@ class CommunityPage
           children: [
             const SizedBox(height: 20),
             SizedBox(
-              height: 250,
+              height: 200,
               child: Padding(
-                padding:
-                    const EdgeInsets
-                        .symmetric(
-                        horizontal:
-                            10.0),
-                child: PlaceInfoCard(
-                  openingHours:
-                      '08:00 am - 02:00 pm',
-                  location: 'Barcelona',
-                  description:
-                      'testing testing 1 2 3',
-                  index: index,
-                  width: cardWidth,
-                ),
-              ),
+                  padding:
+                      const EdgeInsets
+                          .symmetric(
+                          horizontal:
+                              10.0),
+                  child: Text(
+                      'Community Page')),
             ),
           ],
         ),
